@@ -124,83 +124,86 @@ const Accordion = (props) => {
         <div className="col-8">
           <form onSubmit={handleSubmit}>
             <div className="accordion-item my-2">
-              <h1 className="accordion-header" id={`heading${props.celeb.id}`}>
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target={`#collapse${props.celeb.id}`}
-                  aria-expanded="false"
-                  aria-controls={`collapse${props.celeb.id}`}
-                >
-                  <img
-                    src={props.celeb.picture}
-                    alt=""
-                    className="d-inline-block align-text-top userimage"
-                  ></img>
-                  <span className="accordion-heading">
-                    &nbsp;&nbsp;
-                    {edit === 1 ? (
-                      <>
-                        <input
-                          type="text"
-                          value={editName}
-                          required
-                          onChange={handleNameChange}
-                        />
-                      </>
-                    ) : (
-                      <>{userName}</>
-                    )}
-                  </span>
-                </button>
-              </h1>
-              <div
-                id={`collapse${props.celeb.id}`}
-                className="accordion-collapse collapse"
-                aria-labelledby={`heading${props.celeb.id}`}
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body">
-                  {deleteAccordion ? (
-                    <>
-                      <div className="row justify-content-between">
-                        <div className="col-auto">
-                          <p>Are you sure you want to delete ?</p>
-                        </div>
-                        <div className="col-auto">
-                          <button
-                            type="button"
-                            className="btn"
-                            onClick={() => setDeleteAccordion(false)}
-                          >
-                            <RiCloseCircleLine className="accordion-icon-cancel" />
-                          </button>
-                        </div>
-                      </div>
-                      <div className="row justify-content-end my-3">
-                        <div className="col-auto">
-                          <button
-                            type="button"
-                            className="btn accordion-button-cancel"
-                            onClick={() => setDeleteAccordion(false)}
-                          >
-                            Cancel
-                          </button>
-                        </div>
-                        <div className="col-auto">
-                          <button
-                            type="button"
-                            className="btn accordion-button-delete"
-                            onClick={handleDelete}
-                          >
-                            Delete
-                          </button>
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
+              {deleteAccordion ? (
+                <>
+                  <div className="row justify-content-between mx-1 my-3">
+                    <div className="col-auto">
+                      <p>Are you sure you want to delete ?</p>
+                    </div>
+                    <div className="col-auto">
+                      <button
+                        type="button"
+                        className="btn"
+                        onClick={() => setDeleteAccordion(false)}
+                      >
+                        <RiCloseCircleLine className="accordion-icon-cancel" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="row justify-content-end my-3 mx-3 my-3">
+                    <div className="col-auto">
+                      <button
+                        type="button"
+                        className="btn accordion-button-cancel"
+                        onClick={() => setDeleteAccordion(false)}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                    <div className="col-auto">
+                      <button
+                        type="button"
+                        className="btn accordion-button-delete"
+                        onClick={handleDelete}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h1
+                    className="accordion-header"
+                    id={`heading${props.celeb.id}`}
+                  >
+                    <button
+                      className="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target={`#collapse${props.celeb.id}`}
+                      aria-expanded="false"
+                      aria-controls={`collapse${props.celeb.id}`}
+                    >
+                      <img
+                        src={props.celeb.picture}
+                        alt=""
+                        className="d-inline-block align-text-top userimage"
+                      ></img>
+                      <span className="accordion-heading">
+                        &nbsp;&nbsp;
+                        {edit === 1 ? (
+                          <>
+                            <input
+                              type="text"
+                              value={editName}
+                              required
+                              onChange={handleNameChange}
+                            />
+                          </>
+                        ) : (
+                          <>{userName}</>
+                        )}
+                      </span>
+                    </button>
+                  </h1>
+                  <div
+                    id={`collapse${props.celeb.id}`}
+                    className="accordion-collapse collapse"
+                    aria-labelledby={`heading${props.celeb.id}`}
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div className="accordion-body">
                       {edit == 0 ? (
                         <>
                           <div className="row justify-content-start">
@@ -345,10 +348,10 @@ const Accordion = (props) => {
                           </div>
                         </>
                       )}
-                    </>
-                  )}
-                </div>
-              </div>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </form>
         </div>
